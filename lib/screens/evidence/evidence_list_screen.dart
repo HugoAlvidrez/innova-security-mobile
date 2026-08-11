@@ -29,10 +29,21 @@ class _EvidenceListScreenState extends State<EvidenceListScreen> {
         title: const Text('Mis Eventos'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.videocam, color: Colors.redAccent),
+            tooltip: 'Grabar con Webcam',
+            onPressed: () => Navigator.pushNamed(context, '/webcam-recorder'),
+          ),
+          IconButton(
             icon: const Icon(Icons.filter_list_outlined),
             onPressed: () {},
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.pushNamed(context, '/webcam-recorder'),
+        backgroundColor: Colors.red.shade900,
+        icon: const Icon(Icons.videocam, color: Colors.white),
+        label: const Text('GRABAR WEBCAM', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
       body: Consumer<EvidenceProvider>(
         builder: (_, provider, __) {

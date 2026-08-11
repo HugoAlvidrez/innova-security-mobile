@@ -7,6 +7,7 @@ import 'screens/auth/login_screen.dart';
 import 'main_screen.dart';
 import 'screens/emergency/emergency_screen.dart';
 import 'screens/evidence/evidence_viewer_screen.dart';
+import 'screens/evidence/webcam_recorder_screen.dart';
 import 'screens/wearable/wearable_screen.dart';
 
 class InnovaSecurityApp extends StatelessWidget {
@@ -26,6 +27,7 @@ class InnovaSecurityApp extends StatelessWidget {
             '/main': (_) => const MainNavigationScreen(),
             '/emergency': (_) => const EmergencyScreen(),
             '/wearable': (_) => const WearableScreen(),
+            '/webcam-recorder': (_) => const WebcamRecorderScreen(),
           },
           onGenerateRoute: (settings) {
             if (settings.name == '/evidence-viewer') {

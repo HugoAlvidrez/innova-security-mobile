@@ -142,6 +142,21 @@ class _EmergencyScreenState extends State<EmergencyScreen>
 
                           const Spacer(),
 
+                          ElevatedButton.icon(
+                            onPressed: () => Navigator.pushNamed(context, '/webcam-recorder'),
+                            icon: const Icon(Icons.videocam, color: Colors.white),
+                            label: const Text('GRABAR EVIDENCIA CON WEBCAM', style: TextStyle(fontWeight: FontWeight.bold)),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.purple.shade800,
+                              foregroundColor: Colors.white,
+                              minimumSize: const Size(double.infinity, 48),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+
                           // Cancel button
                           SizedBox(
                             width: double.infinity,
