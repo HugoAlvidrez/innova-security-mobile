@@ -351,7 +351,7 @@ class _WebcamRecorderScreenState extends State<WebcamRecorderScreen> {
             ),
           ],
         ),
-      );
-
+      ),
+    );
   }
 }
