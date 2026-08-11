@@ -151,10 +151,12 @@ class _WebcamRecorderScreenState extends State<WebcamRecorderScreen> {
         ));
 
         final response = await request.send();
+        final resStr = await response.stream.bytesToString();
         if (response.statusCode == 200 || response.statusCode == 201) {
-          final resStr = await response.stream.bytesToString();
           final data = jsonDecode(resStr);
           _recordedVideoUrl = data['data']?['file']?['url'];
+        } else {
+          print('Upload response failed: ${response.statusCode} - $resStr');
         }
       }
 
