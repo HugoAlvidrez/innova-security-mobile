@@ -9,9 +9,13 @@ class ChatProvider extends ChangeNotifier {
   final List<MessageModel> _messages = List.from(MockData.messages);
   bool _isLoading = false;
   bool _isSending = false;
-  String? _selectedEventId;
+  String? _selectedEventId = 'evt_001';
   String? _error;
   Timer? _pollTimer;
+
+  ChatProvider() {
+    _startPolling();
+  }
 
   List<MessageModel> get messages => List.unmodifiable(_messages);
   bool get isLoading => _isLoading;
@@ -87,7 +91,8 @@ class ChatProvider extends ChangeNotifier {
   }
 
   Future<void> sendMessage(String content) async {
-    if (content.trim().isEmpty || _selectedEventId == null) return;
+    _selectedEventId ??= 'evt_001';
+    if (content.trim().isEmpty) return;
 
     _isSending = true;
     _error = null;
